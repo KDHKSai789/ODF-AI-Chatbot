@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ODF AI COMMAND CENTER</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>ODF AI COMMAND CENTER</h1>
+
+    <label>Model</label>
+    <select id="model">
+        {% for model in models %}
+        <option>{{model}}</option>
+        {% endfor %}
+    </select>
+
+    <hr>
+
+    <h3>Knowledge Base</h3>
+    <input id="pdf" type="file" multiple accept=".pdf">
+    <button type="button" onclick="uploadPDF(event)">UPLOAD</button>
+
+    <hr>
+
+    <h3>Mission Query</h3>
+    <textarea id="question" rows="6"></textarea>
+    <br>
+    <button type="button" onclick="askQuestion(event)">EXECUTE</button>
+
+    <hr>
+
+    <h3>MISSION RESPONSE</h3>
+    <div id="answer">Waiting...</div>
+
+    <hr>
+
+    <div id="source"></div>
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
